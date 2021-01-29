@@ -2,13 +2,7 @@
 #include <iostream>
 #include <ctime>
 #include "buttonrpc.hpp"
-
-#ifdef _WIN32
-#include <Windows.h>  // use sleep
-#else
- #include <unistd.h>
-#endif
-
+#include <unistd.h>
 
 #define buttont_assert(exp) { \
 	if (!(exp)) {\
@@ -17,7 +11,6 @@
 		system("pause"); \
 	}\
 }\
-
 
 struct PersonInfo
 {
@@ -67,11 +60,7 @@ int main()
 
 		buttonrpc::value_t<void> xx = client.call<void>("foo_7", 666);
 		buttont_assert(!xx.valid());
-#ifdef _WIN32
-		Sleep(1000);
-#else
-        sleep(1);
-#endif
+                sleep(1);
 	}
 
 	return 0;

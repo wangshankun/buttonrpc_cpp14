@@ -12,6 +12,7 @@
 #include <cstdint>
 #include <utility>
 #include <tuple>
+#include <string.h>
 using namespace std;
 
 class StreamBuffer : public vector<char>
